@@ -4,7 +4,7 @@ import { getItems } from "../src/api";
 export default function items(props) {
     return (
         <div className="App">
-            <h2>index page</h2>
+            <h2>items page</h2>
 
             {props?.itemList?.map((e) => (
                 <li>

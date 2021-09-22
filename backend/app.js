@@ -8,6 +8,9 @@ var indexRouter = require("./routes/index");
 
 var app = express();
 
+const cors = require("cors");
+app.use(cors({ credentials: true, origin: "http://127.0.0.1:3000" }));
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
