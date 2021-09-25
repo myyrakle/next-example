@@ -6,7 +6,6 @@ router.get("/", function (req, res, next) {
     res.render("index", { title: "Express" });
 });
 
-/* GET home page. */
 router.get("/random", function (req, res, next) {
     res.json({ value: Math.random() * 100 });
 });
@@ -26,7 +25,8 @@ const items = {
 };
 
 router.get("/item/:itemId", function (req, res, next) {
-    res.json({ item: items[req?.params?.["itemId"]] });
+    const itemId = req?.params?.["itemId"];
+    res.json({ item: { ...items[itemId], itemId } });
 });
 
 router.get("/items", function (req, res, next) {

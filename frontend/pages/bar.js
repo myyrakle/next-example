@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { getRandom } from "../src/api";
+import { getRandomBySWR } from "../src/api";
 
-export default function bar() {
-    const { data, mutate } = getRandom();
+export default function Bar() {
+    const { data, mutate } = getRandomBySWR();
 
     return (
         <div className="App">

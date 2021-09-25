@@ -6,19 +6,13 @@ export default function index() {
             <h2>index page</h2>
 
             <li>
-                <Link href="/foo?value=boom">
-                    <a>foo 페이지로 이동</a>
-                </Link>
+                <Link href="/foo?value=boom">foo 페이지로 이동</Link>
             </li>
             <li>
-                <Link href="/bar">
-                    <a>bar 페이지로 이동</a>
-                </Link>
+                <Link href="/bar">bar 페이지로 이동</Link>
             </li>
             <li>
-                <Link href="/items">
-                    <a>items 페이지로 이동</a>
-                </Link>
+                <Link href="/items">items 페이지로 이동</Link>
             </li>
         </div>
     );

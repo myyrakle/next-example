@@ -1,26 +1,22 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { getItem, getRandom } from "../../src/api";
+import { getItem } from "../../src/api";
 
-export default function itemByItemId(props) {
+export default function ItemByItemId(props) {
     return (
         <div className="App">
             <h2>item page</h2>
             <ul>상품코드: {props.item?.itemId}</ul>
             <ul>상품명: {props.item?.name}</ul>
             <ul>상품가격: {props.item?.price}</ul>
-
-            <hr />
-            <div>{props.random}</div>
         </div>
     );
 }
 
-itemByItemId.getInitialProps = async function ({ query }) {
+export async function getServerSideProps({ query }) {
     const data = await getItem(query?.itemId);
-    const { value: random } = await getRandom();
+
     return {
-        item: data?.item,
-        random,
+        props: {
+            item: data?.item,
+        },
     };
-};
+}

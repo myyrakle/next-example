@@ -6,7 +6,7 @@ export async function fetcher(...args) {
     return response.data;
 }
 
-export function getRandom() {
+export function getRandomBySWR() {
     const { data, error, mutate } = useSWR(
         `http://127.0.0.1:3030/random`,
         fetcher
@@ -18,6 +18,12 @@ export function getRandom() {
         isLoading: !error && !data,
         mutate,
     };
+}
+
+export async function getRandom() {
+    const response = await axios.get(`http://127.0.0.1:3030/random`);
+
+    return response.data;
 }
 
 export async function getItems() {

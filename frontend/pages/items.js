@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { getItems } from "../src/api";
 
-export default function items(props) {
+export default function Items(props) {
     return (
         <div className="App">
-            <h2>items page</h2>
+            <h2>index page</h2>
 
             {props?.itemList?.map((e) => (
                 <li>
                     <Link href="/item/[itemId]" as={`/item/${e.itemId}`}>
-                        <a>{e.name}</a>
+                        {e.name}
                     </Link>
                 </li>
             ))}
@@ -17,10 +17,12 @@ export default function items(props) {
     );
 }
 
-items.getInitialProps = async function () {
+export async function getServerSideProps() {
     const data = await getItems();
 
     return {
-        itemList: data?.items,
+        props: {
+            itemList: data?.items,
+        },
     };
-};
+}
